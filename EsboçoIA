@@ -1,0 +1,88 @@
+#include <math.h>
+
+struct Jogada ExecutaIA(/*passar os parâmetros indicados*/){
+    struct Jogada *lista,*jogadaAux,*listaBrancas,*listaPretas;
+
+    ///declarar e inicializar as variáveis indicadas (item 1 do exercício)
+
+    ///calcular as possíveis jogadas das peças brancas e pretas (item 2 do exercício)
+
+    ///fazer com que a variável "lista" receba a lista de jogadas das peças brancas ou das pretas, dependendo do valor de nível (item 3 do exercício)
+
+    jogadaAux = lista->prox;
+
+    while (jogadaAux!=lista && podado==0){///aqui vamos percorrer a lista de jogadas possíveis (ou da sbrancas ou das pretas) enquanto ainda for bom continuar avaliando a posição
+
+        ///copiar o parâmetro "posAtual" para "posCopia" (item 4 do exercício)
+
+        ///executar a jogada "jogadaAux" em "posCopia" (item 4 do exercício)
+
+        ///verificar se "nivel" é menor do que "MAX_NIVEL" (item 5 do exercício)
+        {
+            ///verificar se "nivel" é par (item 5a do exercício)
+            {
+                ///chamar a função recursivamente e guardar a jogada retornada em "jogadaIA" (item 5a do exercício)
+            }
+
+            ///verificar se "nivel" é ímpar (item 5b do exercício) - pode ser usado "else" em relação ao item 5a
+            {
+                ///chamar a função recursivamente e guardar a jogada retornada em "jogadaIA" (item 5b do exercício)
+            }
+
+            ///executar "jogadaIA" sobre "posCopia" (item 5a do exercício)
+        }
+
+        ///avaliar a posição "posCopia" (item 6 do exercício)
+
+        ///verificar se houve poda (item 6 do exercício)
+
+        ///verificar "jogadaIA" é a melhor jogada encontrada até o momento (item 7 do exercício)
+
+        ///liberar a memória de "posCopia" (item 8 do exercício)
+
+    }
+
+    ///liberar a memória alocada nas listas de possíveis jogadas das peças brancas e pretas (item 9 do exercício)
+
+
+    ///retornar a melhor jogada encontrada "melhorJogada" (item 9 do exercício).
+}
+
+void SalvaJogada(/*passar os parâmetros*/){
+    FILE *arq;
+    ///abrir o arquivo de acordo com o valor do ponteiro
+
+    ///salvar a jogada, se for o caso
+
+    ///fechar o arquivo
+}
+
+int main(){
+    int vencedor=0;
+
+    struct Posicao posAux = IniciaTabuleiro();
+    struct Jogada *jogadasPossiveis=NULL,jogadaEscolhida;
+
+    ///criar o arquivo de jogadas (vazio) e fechar;
+
+    while (vencedor==0){
+        DesenhaTabuleiro(posAux);
+        if (posAux.jogVez==1){
+            jogadasPossiveis = CalculaMovimentosPossiveis(posAux);
+            jogadaEscolhida = EscolheJogada(jogadasPossiveis); ///eu modifiquei aqui para retornar um struct ao invés de um ponteiro
+            DestroiJogadas(jogadasPossiveis);
+        }else{
+            jogadaEscolhida = ExecutaIA(posAux,0,-INFINITY,INFINITY);
+        }
+
+        ///salvar a jogada no arquivo
+
+        vencedor = ExecutaJogada(&posAux,jogadaEscolhida);
+    }
+    if (posAux.jogVez==-1){ //a função ExecutaJogada já trocou o jogador da vez
+        printf("Brancas venceram!");
+    }else printf("Pretas venceram!");
+
+    DestroiPecas(posAux.brancas);
+    DestroiPecas(posAux.pretas);
+}
