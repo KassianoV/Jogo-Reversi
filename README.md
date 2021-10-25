@@ -7,7 +7,7 @@ jogador) em alguma casa vazia do tabuleiro, de maneira a fazer um “sanduíche�
 adversário. Esse “sanduíche” consiste em uma ou mais peças do adversário, em linha reta (vertical, horizontal
 ou diagonal), que estejam entre uma pedra já colocada anteriormente e a pedra que acabou de ser colocada.<p/>
 <p>Todas as peças que estejam nesses sanduíches são “viradas”, ou seja, passam a pertencer momentaneamente
-ao adversário, como nas Figuras 3. Todas as pedras do adversário que puderem ser viradas, por estarem em
+ao adversário. Todas as pedras do adversário que puderem ser viradas, por estarem em
 um sanduíche, devem ser viradas imediatamente após a colocação da pedra. Não é possível escolher quais pedras serão viradas nem deixar pedras sem serem viradas em quaisquer
 direções possíveis. Uma pedra não pode ser colocada em uma posição onde não vire nenhuma pedra do adversário.<p/>
 <p>Após colocar uma peça e “virar” as peças do adversário. O jogador passa a vez para o adversário. Se, a qualquer
