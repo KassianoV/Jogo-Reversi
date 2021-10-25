@@ -1,3 +1,4 @@
+// Nesse esboço foi mostrado como deve ser implementado a IA.
 #include <math.h>
 
 struct Jogada ExecutaIA(/*passar os parâmetros indicados*/){
